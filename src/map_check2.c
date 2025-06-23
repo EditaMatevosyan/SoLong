@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 13:18:26 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/23 16:09:59 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/23 17:50:42 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,20 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-void check_blank_lines(char *str)
+void	check_blank_lines(char *str)
 {
-   int i;
+	int	i;
 
-   i = 0;
-   while(str[i]){
-    if(str[i] == '\n' && str[i + 1] == '\n'){
-        write(1, "Invalid Map!\n", 13);
-        exit(1);
-    }
-    i++;
-   }
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '\n' && str[i + 1] == '\n')
+		{
+			write(1, "Invalid Map!\n", 13);
+			exit(1);
+		}
+		i++;
+	}
 }
 
 int	check_file_ext(char *map)
@@ -61,17 +63,18 @@ int	check_file_ext(char *map)
 	return (1);
 }
 
-void check_line(char **str)
+void	check_line(char **str)
 {
-    int i;
-    char *temp;
-    
-    i = 0;
-    while(str[i]){
-        temp = str[i];
-        str[i] = strtrim_for_line(str[i], " \t\v\f\r");
-        free(temp);
-        i++;
-    }
-    str[i] = NULL;
+	int		i;
+	char	*temp;
+
+	i = 0;
+	while (str[i])
+	{
+		temp = str[i];
+		str[i] = strtrim_for_line(str[i], " \t\v\f\r");
+		free(temp);
+		i++;
+	}
+	str[i] = NULL;
 }

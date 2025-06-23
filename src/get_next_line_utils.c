@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 16:03:45 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/09 19:42:13 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/23 17:55:20 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_strdup(const char *s1)
 char	*ft_substr(char const *s, int start, int len)
 {
 	char	*sub;
-	int	i;
+	int		i;
 
 	if (!s)
 		return (NULL);

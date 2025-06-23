@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:54:16 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/10 16:36:40 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/23 17:41:52 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,24 +56,24 @@ char	*ft_strtrim(char *s1, char *set)
 
 char	*strtrim_for_line(char const *s1, char const *set)
 {
-	char *str;
-	int i;
-	int start;
-	int end;
+	char	*str;
+	int		i;
+	int		start;
+	int		end;
 
-	if(!s1 || !set)
+	if (!s1 || !set)
 		return (NULL);
 	start = 0;
 	end = ft_strlen(s1) - 1;
-	while(end >= 0 && check(s1[end], (unsigned char *)set) && s1[end])
+	while (end >= 0 && check(s1[end], (unsigned char *)set) && s1[end])
 		end--;
-	if(end != 0)
+	if (end != 0)
 		end++;
 	str = (char *)malloc(end - start + 1);
-	if(!str)
+	if (!str)
 		return (NULL);
 	i = 0;
-	while(start < end)
+	while (start < end)
 		str[i++] = s1[start++];
 	str[i] = '\0';
 	return (str);
