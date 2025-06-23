@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:16:59 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/23 17:52:23 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/23 20:38:36 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char	**parse_map(int fd)
 	while (line)
 	{
 		joined = ft_strjoin(joined, line);
+		
 		free(line);
 		line = get_next_line(fd);
 	}

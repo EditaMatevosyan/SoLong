@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:05:02 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/23 17:48:20 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/23 20:33:10 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,12 @@ void	check_char_count(char **line)
 		}
 	}
 	if (c <= 0 || e != 1 || p != 1)
+	{
+		for(i = 0; line[i]; i++)
+			free(line[i]);
+		free(line);
 		exit(1 && write(1, "Invalid number of charaters\n", 28));
+	}
 }
 
 void	check_chars(char **line)

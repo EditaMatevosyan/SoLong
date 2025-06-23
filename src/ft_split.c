@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 19:20:54 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/23 17:41:11 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/23 20:22:22 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	**alloc_word(char *str, char **res)
 		{
 			res[j] = (char *)malloc(sizeof(char) * (i - start + 1));
 			if (!res[j])
-				return (NULL);
+				free_map(res);
 			ft_strncpy(res[j++], &str[start], (i - start));
 		}
 	}
