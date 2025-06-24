@@ -6,12 +6,45 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 18:31:03 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/24 16:21:41 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 17:14:23 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/get_next_line.h"
 #include "../includes/so_long.h"
+
+void destroy_pic(t_img *img, char *message)
+{
+    if (img->lplayer)
+        mlx_destroy_image(img->mlx, img->lplayer);
+    if (img->rplayer)
+        mlx_destroy_image(img->mlx, img->rplayer);
+    if (img->uplayer)
+        mlx_destroy_image(img->mlx, img->uplayer);
+    if (img->dplayer)
+        mlx_destroy_image(img->mlx, img->dplayer);
+    if (img->player_on_exit)
+        mlx_destroy_image(img->mlx, img->player_on_exit);
+    if (img->enemy1)
+        mlx_destroy_image(img->mlx, img->enemy1);
+    if (img->enemy2)
+        mlx_destroy_image(img->mlx, img->enemy2);
+    if (img->book[0])
+        mlx_destroy_image(img->mlx, img->book[0]);
+    if (img->book[1])
+        mlx_destroy_image(img->mlx, img->book[1]);
+    if (img->book[2])
+        mlx_destroy_image(img->mlx, img->book[2]);
+    if (img->road)
+        mlx_destroy_image(img->mlx, img->road);
+    if (img->wall)
+        mlx_destroy_image(img->mlx, img->wall);
+    if (img->exit)
+        mlx_destroy_image(img->mlx, img->exit);
+    exit(1 && write(1, message, ft_strlen(message))
+		&& mlx_destroy_window(img->mlx, img->window)
+		&& mlx_destroy_display(img->mlx));
+}
 
 void	init_players(t_img *img)
 {
@@ -37,7 +70,7 @@ void	init_players(t_img *img)
 		|| !img->player_on_exit || !img->enemy1 || !img->enemy2
 		|| !img->book[0] || !img->book[1] || !img->book[2])
 	{
-		write(1, "Error: Image loading failed\n", 28);
+		destroy_pic(img, "Error: Image loading failed\n");
 		exit(1);
 	}
 }
@@ -54,7 +87,7 @@ void	init_images(t_img *img)
 			&img->height);
 	if (!img->road || !img->wall || !img->dplayer || !img->exit)
 	{
-		write(1, "Error: Image loading failed\n", 28);
+		destroy_pic(img, "Error: Image loading failed\n");
 		exit(1);
 	}
 	init_players(img);
@@ -113,11 +146,11 @@ void	start_game(t_map *map)
 	map->steps = 0;
 	map->mlx.mlx = mlx_init();
 	if (!map->mlx.mlx)
-		exit(1 && write(1, "MLX initialization failed\n", 26));
+		exit(1 && free_map(map->map) && write(1, "MLX initialization failed\n", 26));
 	map->mlx.window = mlx_new_window(map->mlx.mlx, map->map_width * SIZE,
 			map->map_height * SIZE, "Gravity Falls - So long");
 	if (!map->mlx.window)
-		exit(1 && write(1, "Window creation failed\n", 23));
+		exit(1 && free_map(map->map) && write(1, "Window creation failed\n", 23));
 	find_player_position(map);
 	mlx_hook(map->mlx.window, 2, 1L << 0, key_press, map);
 	mlx_hook(map->mlx.window, 17, 1L << 17, destroy, map);

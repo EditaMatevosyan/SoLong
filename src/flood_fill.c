@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:32:51 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/24 16:29:07 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:40:36 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,16 @@ char	**map_copy(char **map, int row)
 		return (NULL);
 	copy = (char **)malloc(sizeof(char *) * (row + 1));
 	if (!copy)
-		exit(1 && write(1, "Allocation failed\n", 18));
+		exit(1 && free_map(copy) && write(1, "Allocation failed\n", 18));
 	i = 0;
 	while (map[i])
 	{
 		copy[i] = ft_strdup(map[i]);
+		if (!copy[i])
+		{
+			free_map(copy);
+			exit(1 && write(1, "Allocation failed\n", 18));
+		}
 		i++;
 	}
 	copy[i] = NULL;
@@ -85,7 +90,7 @@ void	fill(char **map, int row)
 	i = 0;
 	copy = map_copy(map, row);
 	if (!copy)
-		exit(1 && write(1, "Allocation failed\n", 18));
+		exit(1 && free_map(copy) && write(1, "Allocation failed\n", 18));
 	while (map[i])
 	{
 		j = 0;

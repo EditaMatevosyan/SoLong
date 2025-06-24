@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:05:02 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/24 16:24:27 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:43:03 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int	check_top_bottom_walls(char **lines, int rows)
 	{
 		if (lines[0][i] != '1')
 		{
+			free_map(lines);
 			write(1, "Error: Walls!\n", 14);
 			exit(1);
 		}
@@ -86,6 +87,7 @@ int	check_top_bottom_walls(char **lines, int rows)
 	{
 		if (lines[rows - 1][i] != '1')
 		{
+			free_map(lines);
 			write(1, "Error: Walls!\n", 14);
 			exit(1);
 		}
@@ -108,7 +110,8 @@ int	check_walls(char **lines)
 	while (lines[i])
 	{
 		if ((lines[i][0] != lines[i][width - 1]) || lines[1][0] != '1')
-		{
+		{	
+			free_map(lines);
 			write(1, "Error: Sidewalls!\n", 18);
 			return (1);
 		}
@@ -129,6 +132,7 @@ int	check_map_shape(char **map)
 	{
 		if (ft_strlen(map[i]) != first_row_len)
 		{
+			free_map(map);
 			write(1, "Error: Wrong Shape\n", 18);
 			return (1);
 		}
