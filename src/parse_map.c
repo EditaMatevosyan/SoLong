@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:16:59 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/24 16:12:43 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 20:08:32 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ char	**parse_map(int fd)
 	joined = ft_strtrim(joined, " \n\t\r\v\f");
 	free(temp);
 	check_blank_lines(joined);
+	//system("leaks so_long");
 	map = ft_split(joined);
-	check_line(map);
 	free(joined);
+	check_line(map);
 	check_chars(map);
 	return (map);
 }

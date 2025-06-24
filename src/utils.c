@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:04:29 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/24 17:20:02 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 19:27:28 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	destroy_img(t_map *map, char *message)
 	mlx_destroy_window(map->mlx.mlx, map->mlx.window);
 	mlx_destroy_display(map->mlx.mlx);
 	free(map->mlx.mlx);
-	map->mlx.mlx = NULL;
+	// map->mlx.mlx = NULL;
 	write(1, message, ft_strlen(message));
 	free_map(map->map);
 	exit(0);

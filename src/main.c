@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:19:02 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/24 15:57:33 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 20:28:25 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int	main(int argc, char *argv[])
 	init_map_struct(&map_struct, map);
 	fill(map, map_struct.map_height);
 	start_game(&map_struct);
+	free_map(map);
 	return (0);
 }

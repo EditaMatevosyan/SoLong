@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 18:31:03 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/24 17:14:23 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 20:09:34 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void destroy_pic(t_img *img, char *message)
     exit(1 && write(1, message, ft_strlen(message))
 		&& mlx_destroy_window(img->mlx, img->window)
 		&& mlx_destroy_display(img->mlx));
+	free(img->mlx);
+	// img->mlx = NULL;
 }
 
 void	init_players(t_img *img)
@@ -69,10 +71,7 @@ void	init_players(t_img *img)
 	if (!img->lplayer || !img->rplayer || !img->uplayer || !img->dplayer
 		|| !img->player_on_exit || !img->enemy1 || !img->enemy2
 		|| !img->book[0] || !img->book[1] || !img->book[2])
-	{
 		destroy_pic(img, "Error: Image loading failed\n");
-		exit(1);
-	}
 }
 
 void	init_images(t_img *img)
@@ -86,10 +85,7 @@ void	init_images(t_img *img)
 	img->exit = mlx_xpm_file_to_image(img->mlx, "xpm/exit.xpm", &img->width,
 			&img->height);
 	if (!img->road || !img->wall || !img->dplayer || !img->exit)
-	{
 		destroy_pic(img, "Error: Image loading failed\n");
-		exit(1);
-	}
 	init_players(img);
 	img->player = img->dplayer;
 	img->current_state = 0;
