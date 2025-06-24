@@ -6,20 +6,20 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:16:59 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/23 20:38:36 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:12:43 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/get_next_line.h"
 #include "../includes/so_long.h"
 
-void	free_map(char **map)
+int	free_map(char **map)
 {
 	int	i;
 
 	i = 0;
-	if (!map)
-		return ;
+	// if (!map)
+	// 	return ;
 	while (map[i])
 	{
 		if (map[i])
@@ -30,6 +30,7 @@ void	free_map(char **map)
 		i++;
 	}
 	free(map);
+	return (1);
 }
 
 char	**parse_map(int fd)

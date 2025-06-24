@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:05:02 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/23 20:33:10 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:24:27 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,7 @@ void	check_char_count(char **line)
 		}
 	}
 	if (c <= 0 || e != 1 || p != 1)
-	{
-		for(i = 0; line[i]; i++)
-			free(line[i]);
-		free(line);
-		exit(1 && write(1, "Invalid number of charaters\n", 28));
-	}
+		exit(1 && free_map(line) && write(1, "Error:Wrong num of chars\n", 25));
 }
 
 void	check_chars(char **line)
@@ -62,6 +57,7 @@ void	check_chars(char **line)
 				&& line[i][j] != 'E' && line[i][j] != 'P' && line[i][j] != 'M'
 				&& line[i][j] != '\n')
 			{
+				free_map(line);
 				exit(1 && write(2, "Error: Invalid chars\n", 21));
 			}
 			j++;
@@ -133,7 +129,7 @@ int	check_map_shape(char **map)
 	{
 		if (ft_strlen(map[i]) != first_row_len)
 		{
-			write(1, "Error\nWrong Shape\n", 18);
+			write(1, "Error: Wrong Shape\n", 18);
 			return (1);
 		}
 		i++;

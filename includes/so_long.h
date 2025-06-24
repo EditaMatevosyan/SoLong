@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:05:29 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/23 18:05:28 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:12:19 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void		move_down(t_map *map);
 void		move_right(t_map *map);
 void		move_left(t_map *map);
 int			key_press(int keycode, t_map *map);
-void		free_map(char **map);
+int			free_map(char **map);
 char		**parse_map(int fd);
 void		init_players(t_img *img);
 void		init_images(t_img *img);

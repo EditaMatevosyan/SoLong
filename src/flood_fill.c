@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:32:51 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/23 17:37:20 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:29:07 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	check_copy(char **copy)
 		}
 	}
 	if (c != 0 || e != 0 || p != 0)
-		exit(1 && write(1, "Error. Can't reach to exit!!!", 29));
+		exit(1 && free_map(copy) && write(1, "Error. Can't reach to exit!!!", 29));
 }
 
 void	fill(char **map, int row)
@@ -84,6 +84,8 @@ void	fill(char **map, int row)
 
 	i = 0;
 	copy = map_copy(map, row);
+	if (!copy)
+		exit(1 && write(1, "Allocation failed\n", 18));
 	while (map[i])
 	{
 		j = 0;

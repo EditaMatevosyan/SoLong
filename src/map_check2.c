@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 13:18:26 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/06/23 20:28:15 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:22:36 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ void	check_blank_lines(char *str)
 	{
 		if (str[i] == '\n' && str[i + 1] == '\n')
 		{
-			write(1, "Invalid Map!\n", 13);
-			printf("\033[0;31maaaa");
+			write(1, "Error: Invalid Map!\n", 21);
 			exit(1);
 		}
 		i++;
