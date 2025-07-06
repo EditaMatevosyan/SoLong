@@ -5,7 +5,7 @@ SRCS = $(addprefix $(SRC_DIR)/, destroy.c flood_fill.c ft_itoa.c ft_split.c ft_s
 
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address -O0
+CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address -O0
 
 MLX_DIR = ./minilibx-linux
 MLX = -L$(MLX_DIR) -lmlx -lXext -lX11
