@@ -6,7 +6,7 @@
 /*   By: edmatevo <edmatevo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 18:31:03 by edmatevo          #+#    #+#             */
-/*   Updated: 2025/07/06 15:10:34 by edmatevo         ###   ########.fr       */
+/*   Updated: 2025/07/11 13:47:12 by edmatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,12 @@ void	draw_map(t_map *map, t_img *img)
 		j = 0;
 		while (map->map[i][j])
 		{
+			print_steps_on_window(map);
 			draw_tile(map, img, i, j);
 			j++;
 		}
 		i++;
 	}
-	print_steps_on_window(map);
 }
 
 void	start_game(t_map *map)
